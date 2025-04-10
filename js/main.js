@@ -19,20 +19,28 @@ function mostrarPersonajes(personajes) {
         const tarjeta = document.createElement('div');
         tarjeta.className = 'card';
 
-        // Verificamos si hay título, y si no, mostramos cumpleaños
         const titulo = personaje.personal?.titles?.[0];
-        const cumple = personaje.personal?.birthdate || 'Desconocido';
-        const datoExtra = titulo && titulo.trim() !== '' ? titulo : cumple;
+        const cumple = personaje.personal?.birthdate;
+
+        let etiqueta = 'Título';
+        let valor = titulo;
+
+        if (!titulo || titulo.trim() === '') {
+            etiqueta = 'Cumpleaños';
+            valor = cumple || 'Desconocido';
+        }
 
         tarjeta.innerHTML = `
             <img src="${personaje.images[0]}" alt="${personaje.name}">
             <h2>${personaje.name}</h2>
             <p><strong>Clan:</strong> ${personaje.personal.clan || 'Sin clan😢'}</p>
-            <p>${datoExtra}</p>
+            <p><strong>${etiqueta}:</strong> ${valor}</p>
         `;
+
         galeria.appendChild(tarjeta);
     });
 }
+
 
 function actualizarPaginacion() {
     contenedorPaginas.innerHTML = '';
