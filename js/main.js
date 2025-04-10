@@ -5,7 +5,7 @@ const contenedorPaginas = document.getElementById('page-number');
 let paginaActual = 1;
 let totalPaginas = 1;
 let todosLosPersonajes = [];
-const personajesPorPagina = 8;
+const personajesPorPagina = 4;
 
 async function obtenerPersonajes() {
     const respuesta = await fetch(`https://dattebayo-api.onrender.com/characters`);
