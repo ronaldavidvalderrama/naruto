@@ -27,7 +27,7 @@ function mostrarPersonajes(personajes) {
         tarjeta.innerHTML = `
             <img src="${personaje.images[0]}" alt="${personaje.name}">
             <h2>${personaje.name}</h2>
-            <p><strong>Clan:</strong> ${personaje.personal.clan || 'Sin clan'}</p>
+            <p><strong>Clan:</strong> ${personaje.personal.clan || 'Sin clan😢'}</p>
             <p>${datoExtra}</p>
         `;
         galeria.appendChild(tarjeta);
